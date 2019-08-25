@@ -20,3 +20,7 @@ tar cvf secrets.key launchpad-credentials remote-build-key
 snapcraft export-login --snaps=solvespace --channels=edge snapcraft-login
 travis env set SNAP_TOKEN "$(cat snapcraft-login)"
 ```
+
+## Build logs
+
+For launchpad user ```lpuser```: https://code.launchpad.net/~lpuser/+snap/
