@@ -12,7 +12,7 @@ script:
   - git clone -b snap "$SOLVESPACE_REPO" solvespace
   - openssl aes-256-cbc -K $encrypted_5696ff3a6122_key -iv $encrypted_5696ff3a6122_iv -in secrets.tar.enc -out secrets.tar -d
   - tar xvf secrets.tar
-  - mkdir -p $HOME/.local/share/snapcraft/launchpad && mv launchpad-credentials $HOME/.local/share/snapcraft/launchpad/credentials
+  # - mkdir -p $HOME/.local/share/snapcraft/launchpad && mv launchpad-credentials $HOME/.local/share/snapcraft/launchpad/credentials
   - mkdir .snapcraft && mv snapcraft.cfg .snapcraft/snapcraft.cfg
   - mv remote-build-key "$HOME/remote-build-key" && chmod 600 "$HOME/remote-build-key"
   - printf "%s\n" "Host git.launchpad.net" "  IdentityFile $HOME/.ssh/remote-build-key" "  StrictHostKeyChecking no" "  LogLevel ERROR" >> ~/.ssh/config
