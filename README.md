@@ -9,9 +9,9 @@
 ```bash
 cp ~/.local/share/snapcraft/launchpad/credentials launchpad-credentials
 cp ... remote-build-key
-tar cvf secrets.key launchpad-credentials remote-build-key
+tar cvf secrets.tar launchpad-credentials remote-build-key
 ```
-4. Push secrets to Travis: ```travis encrypt-file secrets.key```
+4. Push secrets to Travis: ```travis encrypt-file secrets.tar```
 5. Add openssl command to .travis.yml
 
 ## Cfg for deploy stage
