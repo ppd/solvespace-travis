@@ -14,8 +14,8 @@ script:
   - tar xvf secrets.tar
   - mkdir -p $HOME/.local/share/snapcraft/launchpad && mv launchpad-credentials $HOME/.local/share/snapcraft/launchpad/credentials
   - mkdir $HOME/.snapcraft && mv snapcraft.cfg $HOME/.snapcraft/snapcraft.cfg
-  - mv remote-build-key "$HOME/remote-build-key" && chmod 600 "$HOME/remote-build-key"
-  - printf "%s\n" "Host git.launchpad.net" "  IdentityFile $HOME/.ssh/remote-build-key" "  StrictHostKeyChecking no" "  LogLevel ERROR" >> ~/.ssh/config
+  - mv remote-build-key "$HOME/.ssh/id_rsa" && chmod 600 "$HOME/.ssh/id_rsa"
+  - printf "%s\n" "  StrictHostKeyChecking no" >> ~/.ssh/config
   - solvespace/pkg/snap/build.sh remote-build --user ppd --accept-public-upload
   - ls -l /home/travis/.local/share/snapcraft/projects/solvespace/remote-build/worktree/repo 
   - ls -al solvespace/pkg/snap/*.snap
