@@ -15,7 +15,7 @@ script:
   - mkdir -p $HOME/.local/share/snapcraft/launchpad && mv launchpad-credentials $HOME/.local/share/snapcraft/launchpad/credentials
   - mv remote-build-key "$HOME/.ssh/id_rsa" && chmod 600 "$HOME/.ssh/id_rsa"
   - printf "%s\n" "  StrictHostKeyChecking no" >> ~/.ssh/config
-  - travis_wait solvespace/pkg/snap/build.sh remote-build --user ppd --accept-public-upload --arch=amd64
+  - travis_wait 30 solvespace/pkg/snap/build.sh remote-build --user ppd --accept-public-upload --arch=amd64
 deploy:
   provider: snap
   skip_cleanup: true
