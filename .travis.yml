@@ -13,10 +13,13 @@ script:
   - openssl aes-256-cbc -K $encrypted_5696ff3a6122_key -iv $encrypted_5696ff3a6122_iv -in secrets.tar.enc -out secrets.tar -d
   - tar xvf secrets.tar
   - mkdir -p $HOME/.local/share/snapcraft/launchpad && mv launchpad-credentials $HOME/.local/share/snapcraft/launchpad/credentials
-  - mkdir $HOME/.snapcraft && mv snapcraft.cfg $HOME/.snapcraft/snapcraft.cfg
   - mv remote-build-key "$HOME/.ssh/id_rsa" && chmod 600 "$HOME/.ssh/id_rsa"
   - printf "%s\n" "  StrictHostKeyChecking no" >> ~/.ssh/config
-  - solvespace/pkg/snap/build.sh remote-build --user ppd --accept-public-upload
-  - ls -l /home/travis/.local/share/snapcraft/projects/solvespace/remote-build/worktree/repo 
-  - ls -al solvespace/pkg/snap/*.snap
+  - solvespace/pkg/snap/build.sh remote-build --user ppd --accept-public-upload --arch=amd64
+deploy:
+  provider: snap
+  skip_cleanup: true
+  snap: solvespace/pkg/snap/*.snap
+  on:
+    branch: master
   
