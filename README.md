@@ -14,6 +14,8 @@ tar cvf secrets.tar launchpad-credentials remote-build-key
 4. Push secrets to Travis: ```travis encrypt-file secrets.tar```
 5. Add openssl command to .travis.yml
 
+Snapcraft/launchpad will gain support for submitting builds without the use of a ssh key in the near (?) future.
+
 ## Cfg for deploy stage
 
 ```bash
