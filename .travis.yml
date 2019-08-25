@@ -4,6 +4,7 @@ addons:
   snaps:
     - name: snapcraft
       channel: beta/remote-build
+      confinement: classic
 env:
   global:
     - SOLVESPACE_REPO="https://github.com/ppd1990/solvespace.git"
