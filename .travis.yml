@@ -15,7 +15,7 @@ script:
   - mkdir -p $HOME/.local/share/snapcraft/launchpad && mv launchpad-credentials $HOME/.local/share/snapcraft/launchpad/credentials
   - mkdir .snapcraft && mv snapcraft.cfg .snapcraft/snapcraft.cfg
   - mv remote-build-key "$HOME/remote-build-key" && chmod 600 "$HOME/remote-build-key"
-  - printf "%s\n" "Host launchpad.net" "  IdentityFile $HOME/.ssh/remote-build-key" "  StrictHostKeyChecking accept-new" "  LogLevel ERROR" >> ~/.ssh/config
+  - printf "%s\n" "Host git.launchpad.net" "  IdentityFile $HOME/.ssh/remote-build-key" "  StrictHostKeyChecking no" "  LogLevel ERROR" >> ~/.ssh/config
   - solvespace/pkg/snap/build.sh remote-build --user ppd --accept-public-upload
   - ls -al solvespace/pkg/snap/*.snap
   
