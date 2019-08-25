@@ -17,5 +17,6 @@ script:
   - mv remote-build-key "$HOME/remote-build-key" && chmod 600 "$HOME/remote-build-key"
   - printf "%s\n" "Host git.launchpad.net" "  IdentityFile $HOME/.ssh/remote-build-key" "  StrictHostKeyChecking no" "  LogLevel ERROR" >> ~/.ssh/config
   - solvespace/pkg/snap/build.sh remote-build --user ppd --accept-public-upload
+  - ls -al /home/travis/.local/share/snapcraft/projects/solvespace/remote-build/worktree/repo 
   - ls -al solvespace/pkg/snap/*.snap
   
