@@ -2,7 +2,7 @@
 
 ##  Cfg for remote-build
 
-1. Create ssh key for git.launchpad.net (add to launchpad)
+1. Create SSH key for git.launchpad.net (add to launchpad)
 2. Create launchpad credentials by running ```snapcraft remote-build --user <user>``` locally
 3. Pack secrets together:
 
@@ -14,7 +14,7 @@ tar cvf secrets.tar launchpad-credentials remote-build-key
 4. Push secrets to Travis: ```travis encrypt-file secrets.tar```
 5. Add openssl command to .travis.yml
 
-Snapcraft/launchpad will gain support for submitting builds without the use of a ssh key in the near (?) future.
+Snapcraft/launchpad will gain support for submitting builds without the use of an SSH key in the near (?) future.
 
 ## Cfg for deploy stage
 
